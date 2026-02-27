@@ -50,21 +50,24 @@ const features = [
 
 function PhoneMockup({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative mx-auto w-48 sm:w-56">
-      {/* Phone frame */}
-      <div className="relative rounded-[2rem] border-[6px] border-foreground/10 bg-card shadow-lg overflow-hidden">
-        {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 h-6 w-28 rounded-b-2xl bg-foreground/10" />
-        {/* Screen */}
-        <div className="relative aspect-[9/19.5] w-full overflow-hidden">
+    <div className="relative mx-auto w-44 sm:w-52">
+      {/* Outer phone shell */}
+      <div className="relative rounded-[2.5rem] border-[7px] border-gray-800 bg-gray-800 shadow-2xl overflow-hidden">
+        {/* Dynamic island / notch */}
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 h-5 w-24 rounded-full bg-gray-900" />
+        {/* Screen – image fills it 100% */}
+        <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.8rem]">
           <Image
             src={src}
             alt={alt}
             fill
             className="object-cover object-top"
-            sizes="(max-width: 640px) 192px, 224px"
+            sizes="(max-width: 640px) 176px, 208px"
+            unoptimized
           />
         </div>
+        {/* Home indicator bar */}
+        <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 z-20 h-1 w-20 rounded-full bg-white/30" />
       </div>
     </div>
   )
@@ -81,10 +84,10 @@ export function FeaturesSection() {
           Powerful features to help you break your struggle and dedicate your focus to building.
         </p>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature) => (
             <div key={feature.title} className="flex flex-col items-center">
-              <div className={`${feature.bg} rounded-3xl p-6 pb-4 w-full flex flex-col items-center`}>
+              <div className={`${feature.bg} rounded-3xl pt-10 pb-6 px-6 w-full flex flex-col items-center`}>
                 <PhoneMockup src={feature.image} alt={feature.title} />
               </div>
               <p className="mt-4 text-sm font-semibold text-foreground text-center">

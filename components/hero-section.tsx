@@ -1,4 +1,4 @@
-import { User, PawPrint } from "lucide-react"
+import Image from "next/image"
 
 export function HeroSection() {
   return (
@@ -13,7 +13,7 @@ export function HeroSection() {
 
         <div className="mt-14 bg-card rounded-3xl shadow-sm p-8 sm:p-12 border border-border/50">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-            {"Hi, I'm Chris 👋"}
+            {"Hi, I'm Cody Wong 👋"}
           </h2>
 
           <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
@@ -28,33 +28,30 @@ export function HeroSection() {
               <em>want</em>
               {" to put your phone down and focus."}
             </p>
-            <p>
-              I really hope you find it as useful as I do :)
-            </p>
-            <p>
-              {"If you like Ratio, check out my other apps: "}
-              <a href="#" className="text-[#4F00FF] underline underline-offset-2 hover:text-[#4000cc]">Ellie</a>
-              {" (a better daily planner), "}
-              <a href="#" className="text-[#4F00FF] underline underline-offset-2 hover:text-[#4000cc]">Luna</a>
-              {" (a better budgeting app), and "}
-              <a href="#" className="text-[#4F00FF] underline underline-offset-2 hover:text-[#4000cc]">Mogul</a>
-              {" (a better networking app)."}
-            </p>
+            <p>I really hope you find it as useful as I do :)</p>
           </div>
 
           <div className="mt-10 flex items-start gap-10">
+            {/* Developer profile */}
             <div className="flex flex-col items-start">
-              <span className="font-bold text-foreground">Chris Raroque</span>
+              <span className="font-bold text-foreground">Cody Wong</span>
               <span className="text-sm text-muted-foreground">Ratio developer</span>
-              <div className="mt-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#4F00FF]/10">
-                <User className="h-6 w-6 text-[#4F00FF]" />
+              <div className="mt-3 h-14 w-14 rounded-full bg-[#4F00FF]/10 overflow-hidden flex items-center justify-center">
+                <span className="text-xl font-bold text-[#4F00FF]">CW</span>
               </div>
             </div>
+            {/* Mascot profile */}
             <div className="flex flex-col items-start">
               <span className="font-bold text-foreground">Ratio</span>
               <span className="text-sm text-muted-foreground">Chinchilla Mascot</span>
-              <div className="mt-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#4F00FF]/10">
-                <PawPrint className="h-6 w-6 text-[#4F00FF]" />
+              <div className="mt-3 h-14 w-14 rounded-full overflow-hidden bg-[#ecfdf5]">
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/img4-I4zfsMKlkvF5DNH8ih6UECioN2IBqX.webp"
+                  alt="Ratio the chinchilla mascot"
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
             </div>
           </div>

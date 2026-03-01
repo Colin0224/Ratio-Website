@@ -51,23 +51,19 @@ const features = [
 function PhoneMockup({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="relative mx-auto w-44 sm:w-52">
-      {/* Outer phone shell */}
-      <div className="relative rounded-[2.5rem] border-[7px] border-gray-800 bg-gray-800 shadow-2xl overflow-hidden">
-        {/* Dynamic island / notch */}
-        <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 h-5 w-24 rounded-full bg-gray-900" />
-        {/* Screen – image fills it 100% */}
-        <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.8rem]">
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 640px) 176px, 208px"
-            unoptimized
-          />
-        </div>
-        {/* Home indicator bar */}
-        <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 z-20 h-1 w-20 rounded-full bg-white/30" />
+      <div className="relative w-full aspect-[9/19.5] rounded-[2.2rem] border-[4px] border-gray-900 bg-gray-900 shadow-2xl overflow-hidden shadow-gray-900/40">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 640px) 176px, 208px"
+          unoptimized
+        />
+        {/* Top hardware bezel (dynamic island) */}
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 h-[14px] w-[55px] rounded-full bg-black" />
+        {/* Bottom hardware bezel (home indicator) */}
+        <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 z-20 h-[4px] w-[36px] rounded-full bg-black/40" />
       </div>
     </div>
   )

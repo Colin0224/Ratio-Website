@@ -84,7 +84,7 @@ export function PricingSection() {
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#4F00FF]/10">
               <User className="h-5 w-5 text-[#4F00FF]" />
             </div>
-            <span className="text-sm font-medium text-muted-foreground">- Cody</span>
+            <span className="text-sm font-medium text-muted-foreground">- John</span>
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ const primaryLinks = [
   { label: "Home", href: "#" },
   { label: "iOS App", href: "#" },
   { label: "Feedback board", href: "#" },
-  { label: "Support", href: "#" },
+  { label: "Support", href: "mailto:cw309165@gmail.com" },
 ]
 
 const otherLinks = [

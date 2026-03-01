@@ -25,10 +25,10 @@ export function Navbar() {
             About
           </Link>
           <Link
-            href="#"
+            href="#waitlist"
             className="inline-flex items-center justify-center rounded-full bg-[#4F00FF] px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-[#4000cc] transition-colors"
           >
-            Download Ratio
+            Join Waitlist
           </Link>
         </div>
       </div>

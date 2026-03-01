@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { WaitlistForm } from "./waitlist-form"
 
 const heroScreenshots = [
   {
@@ -21,21 +22,21 @@ const heroScreenshots = [
 
 function HeroPhone({ src, alt, offset }: { src: string; alt: string; offset: string }) {
   return (
-    <div className={`relative w-36 sm:w-44 shrink-0 ${offset}`}>
-      <div className="relative rounded-[2.2rem] border-[6px] border-gray-800 bg-gray-800 shadow-2xl overflow-hidden">
-        <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 h-4 w-20 rounded-full bg-gray-900" />
-        <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.6rem]">
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 640px) 144px, 176px"
-            unoptimized
-            priority
-          />
-        </div>
-        <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 z-20 h-1 w-16 rounded-full bg-white/30" />
+    <div className={`relative w-40 sm:w-48 shrink-0 ${offset}`}>
+      <div className="relative w-full aspect-[9/19.5] rounded-[2.2rem] border-[4px] border-gray-900 bg-gray-900  overflow-hidden shadow-gray-900/40">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 640px) 160px, 192px"
+          unoptimized
+          priority
+        />
+        {/* Top hardware bezel (dynamic island) */}
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 h-[14px] w-[55px] rounded-full bg-black" />
+        {/* Bottom hardware bezel (home indicator) */}
+        <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 z-20 h-[4px] w-[36px] rounded-full bg-black/40" />
       </div>
     </div>
   )
@@ -45,31 +46,45 @@ export function HomeHeroSection() {
   return (
     <section className="pt-20 pb-10 px-6 overflow-hidden">
       <div className="mx-auto max-w-5xl">
-        {/* Text */}
-        <div className="text-center max-w-2xl mx-auto">
+        {/* Text + Mascot */}
+        <div className="text-center max-w-3xl mx-auto relative">
+          {/* Mascot floating on the side (visible on larger screens) */}
+          <div className="hidden lg:block absolute -right-36 top-0">
+            <Image
+              src="/mascot-thumbsup.png"
+              alt="Ratio mascot giving thumbs up"
+              width={220}
+              height={220}
+              className="object-contain animate-bounce-slow drop-shadow-lg"
+              priority
+            />
+          </div>
+
           <h1 className="text-5xl sm:text-7xl font-extrabold text-foreground tracking-tight text-balance leading-[1.05]">
             The focus timer that actually{" "}
             <span className="text-[#4F00FF]">sticks.</span>
           </h1>
+
+          {/* Mascot inline for mobile */}
+          <div className="flex justify-center mt-6 lg:hidden">
+            <Image
+              src="/mascot-thumbsup.png"
+              alt="Ratio mascot giving thumbs up"
+              width={150}
+              height={150}
+              className="object-contain drop-shadow-lg"
+              priority
+            />
+          </div>
+
           <p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto">
             Ratio pairs a gamified focus timer with a loveable chinchilla mascot. Build streaks, hit your big goals, and make deep work something you actually look forward to.
           </p>
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <Link
-              href="#"
-              className="inline-flex items-center justify-center rounded-full bg-[#4F00FF] px-7 py-3.5 text-base font-semibold text-white hover:bg-[#4000cc] transition-colors shadow-lg shadow-[#4F00FF]/30"
-            >
-              Download for Free
-            </Link>
-            <Link
-              href="#pricing"
-              className="inline-flex items-center justify-center rounded-full border border-border px-7 py-3.5 text-base font-semibold text-foreground hover:bg-secondary transition-colors"
-            >
-              View Pricing
-            </Link>
+          <div id="waitlist" className="mt-10">
+            <WaitlistForm />
           </div>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Free 3-day trial. No credit card required.
+          <p className="mt-4 text-sm font-medium text-muted-foreground/80">
+            Join the waitlist to get early access and exclusive updates.
           </p>
         </div>
 
@@ -81,7 +96,7 @@ export function HomeHeroSection() {
         </div>
 
         {/* Soft gradient fade at bottom */}
-        <div className="pointer-events-none h-24 bg-gradient-to-t from-background to-transparent -mt-20 relative z-10" />
+        <div className="pointer-events-none h-24 from-background -mt-20 relative z-10" />
       </div>
     </section>
   )
